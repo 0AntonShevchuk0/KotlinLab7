@@ -9,7 +9,7 @@ fun main() {
     //за допомогою стандартної функції введення отримуємо від користувача дані
     var input = readln()
     //так як дані будут запитуватись багато разів, доцільно ввести змінну ззовні
-    var number:Int;
+    var number:Int
     //через можливість некоректних даних, їх обробку та подальше використання
     //виносимо в блок try catch для перехоплення помилок
     try {
@@ -30,7 +30,7 @@ fun main() {
     print("Enter number for factorial: ")
     input = readln()
     try {
-        number = input.toInt();
+        number = input.toInt()
         //за допомогою форматування рядків, виводимо красиво результат на екран
         println("Factorial = ${getFactorial(number)}")
     }
@@ -44,7 +44,7 @@ fun main() {
     print("Enter natural number to get number of digits: ")
     input = readln()
     try {
-        number = input.toInt();
+        number = input.toInt()
         println("Number of digits = ${getDigits(number)}")
     }
     catch (e: NumberFormatException) {
@@ -60,7 +60,7 @@ fun showFibonacci(count: Int, counter: Int = 0, number1: Int = 0, number2: Int =
     //числа Фібоначчі є тільки для цілих додатних чисел
     if (count < 0) {
         //створюємо помилку, щоб не рахувати некоректні дані
-        throw Exception("Cant calculate fibonacci for negative number");
+        throw Exception("Cant calculate fibonacci for negative number")
     }
     //виводимо дані
     println("$counter - $number1")
@@ -72,7 +72,7 @@ fun showFibonacci(count: Int, counter: Int = 0, number1: Int = 0, number2: Int =
 fun getFactorial(number: Int) : Int {
     //немає факторіалу для від'ємних чисел, тому створюємо помилку
     if (number < 0) {
-        throw Exception("Cant calculate factorial for negative number");
+        throw Exception("Cant calculate factorial for negative number")
     }
     //факторіал 0 або 1 = 1
     if (number == 0 || number == 1)
@@ -88,13 +88,13 @@ fun getDigits(number: Int): Int {
         throw Exception("This function calculate only natural numbers digits");
     }
     //число має мати хоча б 1 цифру
-    var digitsNumber = 1;
+    var digitsNumber = 1
     //робимо копію аргументу, яку можна змінювати
-    var tmpNumber = number;
+    var tmpNumber = number
     //визначаємо кількість цифр за допомогою ділення на 10
     while (tmpNumber / 10 != 0) {
-        tmpNumber /= 10;
-        digitsNumber++;
+        tmpNumber /= 10
+        digitsNumber++
     }
-    return digitsNumber;
+    return digitsNumber
 }
