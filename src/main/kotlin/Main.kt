@@ -15,6 +15,7 @@ fun main() {
     try {
         //намагаємося привести рядки до типу Int за допомогою функції toInt
         number = input.toInt();
+        println("Fibonacci:")
         showFibonacci(number)
     }
     //перехоплення помилки некоректого формату даних
@@ -54,33 +55,17 @@ fun main() {
     }
 }
 
-//функція для показу заданої кількості чисел Фібоначчі на кончлоь
-fun showFibonacci(count: Int) {
-    //числа фібоначчі є тільки для цілих додатних чисел
+//функція для показу заданої кількості чисел Фібоначчі на консоль
+fun showFibonacci(count: Int, counter: Int = 0, number1: Int = 0, number2: Int = 1) {
+    //числа Фібоначчі є тільки для цілих додатних чисел
     if (count < 0) {
         //створюємо помилку, щоб не рахувати некоректні дані
         throw Exception("Cant calculate fibonacci for negative number");
     }
-    println("Fibonacci:")
-    //для 0 виводимо завжди
-    println("0 - 0")
-    //1 - один із перших важливих членів, тому виводимо окремо
-    if (count >= 1)
-        println("1 - 1")
-    //виводимо всі інші
-    if (count > 1) {
-        var number1 = 0
-        var number2 = 1
-        var currentNumber:Int
-        for (i in 2..count) {
-            //число Фібоначчі - сума 2 попередніх чисел у цьому ряді, за виключенням перших 2
-            currentNumber = number1 + number2
-            println("$i - $currentNumber")
-            //попередні числа змінюються
-            number1 = number2
-            number2 = currentNumber
-        }
-    }
+    //виводимо дані
+    println("$counter - $number1")
+    if (counter < count)
+        return showFibonacci(count, counter + 1, number2, number1 + number2)
 }
 
 //функція для знаходження факторіалу за допомогою рекурсії
